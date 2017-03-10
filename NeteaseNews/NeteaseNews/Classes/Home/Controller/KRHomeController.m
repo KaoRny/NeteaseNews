@@ -9,6 +9,7 @@
 #import "KRHomeController.h"
 #import "KRChannelModel.h"
 #import "KRChannelLable.h"
+#import "KRNetworkTools.h"
 @interface KRHomeController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 //频道标签视图
 @property (weak, nonatomic) IBOutlet UIScrollView *channelScrollView;
@@ -101,6 +102,16 @@
     
     //  ios 10 提供了一个预加载, 预加载提供collectionview的性能,提起给会把下一个显示的cell给你准备好.
 //    self.homeCollectionView.prefetchingEnabled = YES;
+    
+    [[KRNetworkTools sharedTools] requestWithType:GET andUrlStr:@"T1348648037603/0-20.html" andParams:nil andSuccess:^(id responseObject) {
+        
+        NSLog(@"responseObject%@", responseObject);
+        
+    } andFailure:^(NSError *error) {
+        
+        NSLog(@"error%@", error);
+        
+    }];
 }
 
 # pragma mark - 数据源

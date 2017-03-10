@@ -20,6 +20,7 @@
 		5A936DF81E72F71B00272044 /* KRChannelLable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A936DF71E72F71B00272044 /* KRChannelLable.m */; };
 		5A936DFB1E72FEB400272044 /* KRNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A936DFA1E72FEB400272044 /* KRNewsTableViewController.m */; };
 		5A936DFE1E72FF1800272044 /* KRNewsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A936DFD1E72FF1800272044 /* KRNewsCollectionViewCell.m */; };
+		5A936E011E73012E00272044 /* KRNetworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A936E001E73012E00272044 /* KRNetworkTools.m */; };
 		734DDF541498005B894A2FB4 /* libPods-NeteaseNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B92F923B3F62CF74E51CAB92 /* libPods-NeteaseNews.a */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,8 @@
 		5A936DFA1E72FEB400272044 /* KRNewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNewsTableViewController.m; sourceTree = "<group>"; };
 		5A936DFC1E72FF1800272044 /* KRNewsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNewsCollectionViewCell.h; sourceTree = "<group>"; };
 		5A936DFD1E72FF1800272044 /* KRNewsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNewsCollectionViewCell.m; sourceTree = "<group>"; };
+		5A936DFF1E73012E00272044 /* KRNetworkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNetworkTools.h; sourceTree = "<group>"; };
+		5A936E001E73012E00272044 /* KRNetworkTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNetworkTools.m; sourceTree = "<group>"; };
 		B92F923B3F62CF74E51CAB92 /* libPods-NeteaseNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NeteaseNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -223,6 +226,8 @@
 		5A6D5FA31E72E130007E8239 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				5A936DFF1E73012E00272044 /* KRNetworkTools.h */,
+				5A936E001E73012E00272044 /* KRNetworkTools.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -424,6 +429,7 @@
 				5A6D5F701E72DA50007E8239 /* AppDelegate.m in Sources */,
 				5A6D5FA61E72E46B007E8239 /* KRHomeController.m in Sources */,
 				5A6D5FAC1E72E6C2007E8239 /* KRChannelModel.m in Sources */,
+				5A936E011E73012E00272044 /* KRNetworkTools.m in Sources */,
 				5A936DFB1E72FEB400272044 /* KRNewsTableViewController.m in Sources */,
 				5A6D5F6D1E72DA50007E8239 /* main.m in Sources */,
 				5A936DF81E72F71B00272044 /* KRChannelLable.m in Sources */,
