@@ -9,7 +9,7 @@
 #import "KRHomeController.h"
 #import "KRChannelModel.h"
 #import "KRChannelLable.h"
-@interface KRHomeController ()
+@interface KRHomeController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 //频道标签视图
 @property (weak, nonatomic) IBOutlet UIScrollView *channelScrollView;
 //新闻视图
@@ -29,6 +29,8 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self requestChannelData];
+    
+    [self setupNewsCollectionView];
 }
 
 //请求频道数据
@@ -73,7 +75,48 @@
     //取消滚动条
     self.channelScrollView.showsVerticalScrollIndicator = NO;
     self.channelScrollView.showsHorizontalScrollIndicator = NO;
+
+}
+
+//设置新闻视图
+- (void)setupNewsCollectionView
+{
+    //代理和数据源
+    self.homeCollectionView.dataSource = self;
+    self.homeCollectionView.delegate = self;
+    //设置item大小
+    self.homeFlowLayout.itemSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height - 44 - 64);
+    //滚动方向
+    self.homeFlowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    //间距
+    self.homeFlowLayout.minimumLineSpacing = 0;
+    self.homeFlowLayout.minimumInteritemSpacing = 0;
+    //分页效果
+    self.homeCollectionView.pagingEnabled = YES;
+    //去掉弹簧效果
+    self.homeCollectionView.bounces = NO;
+    //取消滚动条
+    self.homeCollectionView.showsHorizontalScrollIndicator = NO;
+    self.homeCollectionView.showsVerticalScrollIndicator = NO;
+    
+    //  ios 10 提供了一个预加载, 预加载提供collectionview的性能,提起给会把下一个显示的cell给你准备好.
+//    self.homeCollectionView.prefetchingEnabled = YES;
+}
+
+# pragma mark - 数据源
+//行数
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.channelModelArr.count;
+}
+
+//cell
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"newsCell" forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256) / 255.0 green:arc4random_uniform(256) / 255.0 blue:arc4random_uniform(256) / 255.0 alpha:1];
     
     
+    return cell;
 }
 @end
