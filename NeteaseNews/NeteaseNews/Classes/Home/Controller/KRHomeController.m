@@ -8,6 +8,7 @@
 
 #import "KRHomeController.h"
 #import "KRChannelModel.h"
+#import "KRChannelLable.h"
 @interface KRHomeController ()
 //频道标签视图
 @property (weak, nonatomic) IBOutlet UIScrollView *channelScrollView;
@@ -24,12 +25,55 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+      //  iOS7 提供的,如果有导航栏显示的滚动的视图(UITextView, UITableView, UICollectionView, UIScrollView)内容会自动往下偏移64, 设置no表示不让其偏移
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     [self requestChannelData];
 }
 
+//请求频道数据
 - (void) requestChannelData
 {
+    //    //  json文件路径
+    //    NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"topic_news.json" ofType:nil];
+    //
+    //    //  获取文件对应的json的二进制数据
+    //    NSData *jsonData = [NSData dataWithContentsOfFile:jsonPath];
+    //
+    //    //  反序列化json数据
+    //    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:NULL];
+    //    //  获取tlist对应的频道数组字典数据
+    //    NSArray *channelDicArray = [dic objectForKey:@"tList"];
+    //    //  使用YYModel完成字典转模型的操作
+    //    NSArray *modelArray = [NSArray yy_modelArrayWithClass:[ChannelModel class] json:channelDicArray];
+    //    for (ChannelModel *model in modelArray) {
+    //        NSLog(@"%@", model);
+    //    }
+    //记录频道的数据源
     self.channelModelArr = [KRChannelModel getChannelModelArr];
-    NSLog(@"%@", self.channelModelArr);
+//    NSLog(@"%@", self.channelModelArr);
+    //lable大小
+    CGFloat lableW = 80;
+    CGFloat lableH = 44;
+    //遍历频道模型数组 创建对应的lable
+    for (int i = 0; i < self.channelModelArr.count; i++) {
+        //获取对应的模型数据
+        KRChannelModel *model = self.channelModelArr[i];
+        //创建频道lable
+        KRChannelLable *channelLable = [[KRChannelLable alloc] initWithFrame:CGRectMake(lableW * i, 0, lableW, lableH)];
+        channelLable.text = model.tname;
+        //设置文字大小 和居中方式
+        channelLable.font = [UIFont systemFontOfSize:15];
+        channelLable.textAlignment = NSTextAlignmentCenter;
+        [self.channelScrollView addSubview:channelLable];
+    }
+    
+    //设置scrollView内容大小 高度写0也可以 默认是44
+    self.channelScrollView.contentSize = CGSizeMake(lableW * self.channelModelArr.count, lableH);
+    //取消滚动条
+    self.channelScrollView.showsVerticalScrollIndicator = NO;
+    self.channelScrollView.showsHorizontalScrollIndicator = NO;
+    
+    
 }
 @end
