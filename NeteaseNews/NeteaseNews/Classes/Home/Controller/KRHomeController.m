@@ -7,31 +7,29 @@
 //
 
 #import "KRHomeController.h"
-
+#import "KRChannelModel.h"
 @interface KRHomeController ()
-
+//频道标签视图
+@property (weak, nonatomic) IBOutlet UIScrollView *channelScrollView;
+//新闻视图
+@property (weak, nonatomic) IBOutlet UICollectionView *homeCollectionView;
+//布局对象
+@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *homeFlowLayout;
+//频道数据源
+@property (nonatomic, strong) NSArray *channelModelArr;
 @end
 
 @implementation KRHomeController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self requestChannelData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) requestChannelData
+{
+    self.channelModelArr = [KRChannelModel getChannelModelArr];
+    NSLog(@"%@", self.channelModelArr);
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

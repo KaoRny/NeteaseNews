@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -77,6 +76,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="网易新闻" id="Fe8-wx-UKo"/>
+                    <connections>
+                        <outlet property="channelScrollView" destination="cC5-6d-4lb" id="AxH-8x-85M"/>
+                        <outlet property="homeCollectionView" destination="flM-Kx-AwB" id="24K-Zf-yJh"/>
+                        <outlet property="homeFlowLayout" destination="6eH-7O-fFt" id="KXL-E3-s4Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oSy-WR-pkw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -15,6 +15,8 @@
 		5A6D5F861E72DA51007E8239 /* NeteaseNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6D5F851E72DA51007E8239 /* NeteaseNewsTests.m */; };
 		5A6D5F911E72DA51007E8239 /* NeteaseNewsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6D5F901E72DA51007E8239 /* NeteaseNewsUITests.m */; };
 		5A6D5FA61E72E46B007E8239 /* KRHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6D5FA51E72E46B007E8239 /* KRHomeController.m */; };
+		5A6D5FAC1E72E6C2007E8239 /* KRChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6D5FAB1E72E6C2007E8239 /* KRChannelModel.m */; };
+		5A6D5FAE1E72E728007E8239 /* topic_news.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A6D5FAD1E72E728007E8239 /* topic_news.json */; };
 		734DDF541498005B894A2FB4 /* libPods-NeteaseNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B92F923B3F62CF74E51CAB92 /* libPods-NeteaseNews.a */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,9 @@
 		5A6D5F921E72DA51007E8239 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A6D5FA41E72E46B007E8239 /* KRHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRHomeController.h; sourceTree = "<group>"; };
 		5A6D5FA51E72E46B007E8239 /* KRHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRHomeController.m; sourceTree = "<group>"; };
+		5A6D5FAA1E72E6C2007E8239 /* KRChannelModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRChannelModel.h; sourceTree = "<group>"; };
+		5A6D5FAB1E72E6C2007E8239 /* KRChannelModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRChannelModel.m; sourceTree = "<group>"; };
+		5A6D5FAD1E72E728007E8239 /* topic_news.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = topic_news.json; sourceTree = "<group>"; };
 		B92F923B3F62CF74E51CAB92 /* libPods-NeteaseNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NeteaseNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -124,6 +129,7 @@
 				5A6D5F771E72DA50007E8239 /* Assets.xcassets */,
 				5A6D5F791E72DA50007E8239 /* LaunchScreen.storyboard */,
 				5A6D5F7C1E72DA50007E8239 /* Info.plist */,
+				5A6D5FAD1E72E728007E8239 /* topic_news.json */,
 				5A6D5F6B1E72DA50007E8239 /* Supporting Files */,
 			);
 			path = NeteaseNews;
@@ -186,6 +192,8 @@
 		5A6D5FA11E72E130007E8239 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5A6D5FAA1E72E6C2007E8239 /* KRChannelModel.h */,
+				5A6D5FAB1E72E6C2007E8239 /* KRChannelModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -324,6 +332,7 @@
 			files = (
 				5A6D5F7B1E72DA50007E8239 /* LaunchScreen.storyboard in Resources */,
 				5A6D5F781E72DA50007E8239 /* Assets.xcassets in Resources */,
+				5A6D5FAE1E72E728007E8239 /* topic_news.json in Resources */,
 				5A6D5F761E72DA50007E8239 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,6 +408,7 @@
 			files = (
 				5A6D5F701E72DA50007E8239 /* AppDelegate.m in Sources */,
 				5A6D5FA61E72E46B007E8239 /* KRHomeController.m in Sources */,
+				5A6D5FAC1E72E6C2007E8239 /* KRChannelModel.m in Sources */,
 				5A6D5F6D1E72DA50007E8239 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
