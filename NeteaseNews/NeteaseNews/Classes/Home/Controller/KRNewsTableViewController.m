@@ -31,6 +31,7 @@
 //    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"KRNewsTableViewCell" bundle:nil] forCellReuseIdentifier:@"basecell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"bigCell" bundle:nil] forCellReuseIdentifier:@"bigcell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"imagesCell" bundle:nil] forCellReuseIdentifier:@"imagescell"];
 }
 
 - (void)setUrlStr:(NSString *)urlStr
@@ -83,6 +84,11 @@
         //大图
         cell = [tableView dequeueReusableCellWithIdentifier:@"bigcell" forIndexPath:indexPath];
     }
+    else if (model.imgextra.count == 2)
+    {
+        //多图
+        cell = [tableView dequeueReusableCellWithIdentifier:@"imagescell" forIndexPath:indexPath];
+    }
     else
     {
         //基础cell
@@ -104,8 +110,18 @@
         //大图
         return 130;
     }
-    //基础cell
-    return 80;
+    else if (model.imgextra.count == 2)
+    {
+        //多图
+        return 180;
+    }
+    else
+    {
+        //基础cell
+        return 80;
+    }
+    
+
 }
 
 @end

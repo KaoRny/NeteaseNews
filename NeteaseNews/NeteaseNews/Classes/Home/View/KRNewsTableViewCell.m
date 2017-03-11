@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblSource;
 //回复数据
 @property (weak, nonatomic) IBOutlet UILabel *lblReplyCount;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *iconImagesView;
 
 @end
 
@@ -45,6 +46,17 @@
     //回复数
     self.lblReplyCount.text = [NSString stringWithFormat:@"%zd", newsModel.replyCount];
     
+    //遍历多图数组
+    for (int i = 0; i < self.iconImagesView.count; i++) {
+        //获取对应的图片字典
+        NSDictionary *dic = newsModel.imgextra[i];
+        //通过key获取图片地址
+        NSString *imagePath = [dic objectForKey:@"imgsrc"];
+        //获取对应的imageview
+        UIImageView *imageView = self.iconImagesView[i];
+        //给imageView设置网络图片
+        [imageView sd_setImageWithURL:[NSURL URLWithString:imagePath] placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
+    }
 }
 
 
