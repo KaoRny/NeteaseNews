@@ -7,7 +7,7 @@
 //
 
 #import "KRNewsTableViewController.h"
-
+#import "KRNetworkTools.h"
 @interface KRNewsTableViewController ()
 
 @end
@@ -28,7 +28,24 @@
 {
     _urlStr = urlStr;
     
+    //根据网络请求的地址加载网络数据
     NSLog(@"%@", urlStr);
+    
+    [[KRNetworkTools sharedTools] requestWithType:GET andUrlStr:@"T1348648037603/0-20.html" andParams:nil andSuccess:^(id responseObject) {
+        
+        NSLog(@"responseObject%@", responseObject);
+        
+        NSDictionary *dic = (NSDictionary *)responseObject;
+        
+        NSString *key = dic.allKeys.firstObject;
+        
+        NSArray *dicArr = [dic objectForKey:key];
+        
+    } andFailure:^(NSError *error) {
+        
+        NSLog(@"error%@", error);
+        
+    }];
 }
 
 #pragma mark - Table view data source
