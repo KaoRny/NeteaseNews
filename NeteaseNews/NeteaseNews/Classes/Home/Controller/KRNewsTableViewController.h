@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 //新闻列表的tableview
 @interface KRNewsTableViewController : UITableViewController
-
+//请求地址
 @property (nonatomic, copy) NSString *urlStr;
 
 @end

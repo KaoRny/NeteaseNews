@@ -16,14 +16,14 @@ typedef enum : NSUInteger {
 } RequestType;
 
 @interface KRNetworkTools : AFHTTPSessionManager
-
+//全局访问点
 + (instancetype)sharedTools;
 
 
 /**
  通用的请求方式
  
- @param requestType 请求类型
+ @param RequestType 请求类型
  @param urlStr 请求地址
  @param parameters 请求参数
  @param successBlock 成功的回调

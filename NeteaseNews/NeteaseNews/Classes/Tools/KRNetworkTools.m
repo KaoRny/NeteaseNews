@@ -37,10 +37,12 @@
         [self GET:urlStr parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
 //            NSLog(@"responseObject%@", responseObject);
+            successBlock(responseObject);
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             
 //            NSLog(@"error%@", error);
+            failureBlock(error);
             
         }];
 
@@ -51,10 +53,12 @@
         [self POST:urlStr parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
             NSLog(@"responseObject%@", responseObject);
+            successBlock(responseObject);
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             
             NSLog(@"error%@", error);
+            failureBlock(error);
             
         }];
     }

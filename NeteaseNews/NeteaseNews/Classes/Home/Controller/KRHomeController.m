@@ -104,15 +104,7 @@
     //  ios 10 提供了一个预加载, 预加载提供collectionview的性能,提起给会把下一个显示的cell给你准备好.
 //    self.homeCollectionView.prefetchingEnabled = YES;
     
-//    [[KRNetworkTools sharedTools] requestWithType:GET andUrlStr:@"T1348648037603/0-20.html" andParams:nil andSuccess:^(id responseObject) {
-//        
-//        NSLog(@"responseObject%@", responseObject);
-//        
-//    } andFailure:^(NSError *error) {
-//        
-//        NSLog(@"error%@", error);
-//        
-//    }];
+
 }
 
 # pragma mark - 数据源
@@ -127,10 +119,11 @@
 {
     KRNewsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"newsCell" forIndexPath:indexPath];
 //    cell.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256) / 255.0 green:arc4random_uniform(256) / 255.0 blue:arc4random_uniform(256) / 255.0 alpha:1];
-    
+    //获取指定频道模型
     KRChannelModel *model = self.channelModelArr[indexPath.item];
+    //获取频道id
     NSString *tid = model.tid;
-    
+    //计算请求的urlStr
     NSString *urlStr = [NSString stringWithFormat:@"%@/0-20.html", tid];
     cell.urlStr = urlStr;
     
