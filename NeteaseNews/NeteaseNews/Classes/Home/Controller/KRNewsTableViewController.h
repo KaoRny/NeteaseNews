@@ -10,4 +10,6 @@
 //新闻列表的tableview
 @interface KRNewsTableViewController : UITableViewController
 
+@property (nonatomic, copy) NSString *urlStr;
+
 @end

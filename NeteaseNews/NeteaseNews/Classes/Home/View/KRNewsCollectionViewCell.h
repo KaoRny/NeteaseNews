@@ -10,4 +10,7 @@
 
 @interface KRNewsCollectionViewCell : UICollectionViewCell
 
+//请求的网络地址
+@property (nonatomic, copy) NSString *urlStr;
+
 @end

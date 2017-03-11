@@ -10,6 +10,7 @@
 #import "KRChannelModel.h"
 #import "KRChannelLable.h"
 #import "KRNetworkTools.h"
+#import "KRNewsCollectionViewCell.h"
 @interface KRHomeController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 //频道标签视图
 @property (weak, nonatomic) IBOutlet UIScrollView *channelScrollView;
@@ -105,11 +106,11 @@
     
     [[KRNetworkTools sharedTools] requestWithType:GET andUrlStr:@"T1348648037603/0-20.html" andParams:nil andSuccess:^(id responseObject) {
         
-        NSLog(@"responseObject%@", responseObject);
+//        NSLog(@"responseObject%@", responseObject);
         
     } andFailure:^(NSError *error) {
         
-        NSLog(@"error%@", error);
+//        NSLog(@"error%@", error);
         
     }];
 }
@@ -124,9 +125,14 @@
 //cell
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"newsCell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256) / 255.0 green:arc4random_uniform(256) / 255.0 blue:arc4random_uniform(256) / 255.0 alpha:1];
+    KRNewsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"newsCell" forIndexPath:indexPath];
+//    cell.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256) / 255.0 green:arc4random_uniform(256) / 255.0 blue:arc4random_uniform(256) / 255.0 alpha:1];
     
+    KRChannelModel *model = self.channelModelArr[indexPath.item];
+    NSString *tid = model.tid;
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@/0-20.html", tid];
+    cell.urlStr = urlStr;
     
     return cell;
 }
