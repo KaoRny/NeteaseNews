@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 //自定义频道的lable
 @interface KRChannelLable : UILabel
+//缩放百分比
+@property (nonatomic, assign) CGFloat percent;
 
 @end

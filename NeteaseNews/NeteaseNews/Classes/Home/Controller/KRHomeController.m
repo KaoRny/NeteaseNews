@@ -94,7 +94,6 @@
 }
 
 # pragma mark - 点击频道的手势处理
-
 - (void) tapChannelLabe:(UITapGestureRecognizer *)gesture
 {
     //获取频道lable
@@ -156,6 +155,35 @@
     //  根据索引获取频道标签
     KRChannelLable *channelLable = self.channelLableArr[index];
     [self scrollChannelLable:channelLable];
+}
+
+//滚动collectionView会调动这个方法
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    //计算小数索引
+    CGFloat floatIndex = scrollView.contentOffset.x / scrollView.frame.size.width;
+    //计算整数索引
+    int intIndex = scrollView.contentOffset.x / scrollView.frame.size.width;
+    //获取百分比
+    CGFloat percent = floatIndex - intIndex;
+    //计算左边标签的百分比
+    CGFloat leftPercent = 1 - percent;
+    //右边的百分比
+    CGFloat rightpercent = percent;
+    //计算左边标签的索引
+    int leftIndex = intIndex;
+    //计算右边标签的索引
+    int rightIndex = intIndex + 1;
+    //根据指定索引获取标签
+    KRChannelLable *leftChannelLable = self.channelLableArr[leftIndex];
+    KRChannelLable *rightChannelLable = self.channelLableArr[rightIndex];
+    
+    //设置缩放百分比
+    leftChannelLable.percent = leftPercent;
+    rightChannelLable.percent = rightpercent;
+    
+    
+    
 }
 
 //设置新闻视图

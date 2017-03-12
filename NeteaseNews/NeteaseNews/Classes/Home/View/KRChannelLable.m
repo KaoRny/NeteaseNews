@@ -10,12 +10,14 @@
 
 @implementation KRChannelLable
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)setPercent:(CGFloat)percent
+{
+    _percent = percent;
+    // Percent取值范围0-1
+    self.textColor = [UIColor colorWithRed:percent green:0 blue:0 alpha:1];
+    //  计算缩放比,最小的缩放比就是1
+    CGFloat currentPercent = 1 + percent * .3;
+    self.transform = CGAffineTransformMakeScale(currentPercent, currentPercent);
 }
-*/
 
 @end
