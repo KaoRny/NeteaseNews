@@ -70,6 +70,15 @@
         channelLable.font = [UIFont systemFontOfSize:15];
         channelLable.textAlignment = NSTextAlignmentCenter;
         [self.channelScrollView addSubview:channelLable];
+        //开启用户交互
+        channelLable.userInteractionEnabled = YES;
+        //创建手势
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapChannelLabe:)];
+        //添加手势
+        [channelLable addGestureRecognizer:tap];
+        //设置tag
+        channelLable.tag = i;
+        
     }
     
     //设置scrollView内容大小 高度写0也可以 默认是44
@@ -78,6 +87,36 @@
     self.channelScrollView.showsVerticalScrollIndicator = NO;
     self.channelScrollView.showsHorizontalScrollIndicator = NO;
 
+}
+
+# pragma mark - 点击频道的手势处理
+
+- (void) tapChannelLabe:(UITapGestureRecognizer *)gesture
+{
+    //获取频道lable
+    KRChannelLable *channelLable = (KRChannelLable *)gesture.view;
+    //获取频道lable的中心x
+    CGFloat channelLableCenerX = channelLable.center.x;
+    //计算滚动出去的距离
+    CGFloat contentOffsetX = channelLableCenerX - self.view.frame.size.width * .5;
+    //最小滚动范围
+    CGFloat contentOffsetMinX = 0;
+    //最大滚动范围
+    CGFloat contentOffsetMaxX = self.channelScrollView.contentSize.width - self.view.frame.size.width;
+    if (contentOffsetX < contentOffsetMinX) {
+        //  如果比最小滚动范围还要小,那么设置最小的滚动范围
+        contentOffsetX = contentOffsetMinX;
+    }
+    if (contentOffsetX > contentOffsetMaxX) {
+        //  如果比最大滚动范围还要大,那么设置最大的滚动范围
+        contentOffsetX = contentOffsetMaxX;
+    }
+    
+    //让频道scrollView滚动到指定位置
+    [self.channelScrollView setContentOffset:CGPointMake(contentOffsetX, 0) animated:YES];
+    //创建滚动的indexPath
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:channelLable.tag inSection:0];
+    [self.homeCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
 }
 
 //设置新闻视图

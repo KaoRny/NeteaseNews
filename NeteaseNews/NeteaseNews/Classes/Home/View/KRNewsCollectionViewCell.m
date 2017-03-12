@@ -26,8 +26,8 @@
     [self.contentView addSubview:self.tableVC.tableView];
     //设置大小
     self.tableVC.tableView.frame = self.contentView.bounds;
-    //颜色
-    self.tableVC.tableView.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256) / 255.0 green:arc4random_uniform(256) / 255.0 blue:arc4random_uniform(256) / 255.0 alpha:1];
+//    //颜色
+//    self.tableVC.tableView.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256) / 255.0 green:arc4random_uniform(256) / 255.0 blue:arc4random_uniform(256) / 255.0 alpha:1];
     
 }
 
