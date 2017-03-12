@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *homeFlowLayout;
 //频道数据源
 @property (nonatomic, strong) NSArray *channelModelArr;
+//记录频道标签的数组
+@property (nonatomic, strong) NSMutableArray *channelLableArr;
 @end
 
 @implementation KRHomeController
@@ -55,6 +57,7 @@
     //    }
     //记录频道的数据源
     self.channelModelArr = [KRChannelModel getChannelModelArr];
+    self.channelLableArr = [NSMutableArray new];
 //    NSLog(@"%@", self.channelModelArr);
     //lable大小
     CGFloat lableW = 80;
@@ -78,7 +81,8 @@
         [channelLable addGestureRecognizer:tap];
         //设置tag
         channelLable.tag = i;
-        
+        //记录频道lable
+        [self.channelLableArr addObject:channelLable];
     }
     
     //设置scrollView内容大小 高度写0也可以 默认是44
@@ -95,6 +99,34 @@
 {
     //获取频道lable
     KRChannelLable *channelLable = (KRChannelLable *)gesture.view;
+    [self scrollChannelLable:channelLable];
+//    //获取频道lable的中心x
+//    CGFloat channelLableCenerX = channelLable.center.x;
+//    //计算滚动出去的距离
+//    CGFloat contentOffsetX = channelLableCenerX - self.view.frame.size.width * .5;
+//    //最小滚动范围
+//    CGFloat contentOffsetMinX = 0;
+//    //最大滚动范围
+//    CGFloat contentOffsetMaxX = self.channelScrollView.contentSize.width - self.view.frame.size.width;
+//    if (contentOffsetX < contentOffsetMinX) {
+//        //  如果比最小滚动范围还要小,那么设置最小的滚动范围
+//        contentOffsetX = contentOffsetMinX;
+//    }
+//    if (contentOffsetX > contentOffsetMaxX) {
+//        //  如果比最大滚动范围还要大,那么设置最大的滚动范围
+//        contentOffsetX = contentOffsetMaxX;
+//    }
+//    
+//    //让频道scrollView滚动到指定位置
+//    [self.channelScrollView setContentOffset:CGPointMake(contentOffsetX, 0) animated:YES];
+    //创建滚动的indexPath
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:channelLable.tag inSection:0];
+    [self.homeCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+}
+
+//滚动到指定的标签在屏幕中心x显示
+- (void) scrollChannelLable:(KRChannelLable *)channelLable
+{
     //获取频道lable的中心x
     CGFloat channelLableCenerX = channelLable.center.x;
     //计算滚动出去的距离
@@ -114,9 +146,16 @@
     
     //让频道scrollView滚动到指定位置
     [self.channelScrollView setContentOffset:CGPointMake(contentOffsetX, 0) animated:YES];
-    //创建滚动的indexPath
-    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:channelLable.tag inSection:0];
-    [self.homeCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+}
+
+# pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    //计算滚动页数的索引
+    int index = scrollView.contentOffset.x / scrollView.frame.size.width;
+    //  根据索引获取频道标签
+    KRChannelLable *channelLable = self.channelLableArr[index];
+    [self scrollChannelLable:channelLable];
 }
 
 //设置新闻视图
