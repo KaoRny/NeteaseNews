@@ -18,7 +18,7 @@
 @property (nonatomic,copy) NSString *source;
 /// 新闻回复数
 @property (nonatomic, assign)  NSInteger replyCount;
-/// 多张配图
+/// 多张配图 需要把这个数组里字典转成对应的picture模型
 @property (nonatomic, strong) NSArray *imgextra;
 /// 大图标记
 @property (nonatomic, assign) BOOL imgType;

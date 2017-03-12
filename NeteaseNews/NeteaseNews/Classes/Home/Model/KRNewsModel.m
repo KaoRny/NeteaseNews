@@ -9,7 +9,12 @@
 #import "KRNewsModel.h"
 #import "KRNetworkTools.h"
 #import <YYModel.h>
+#import "KRPicture.h"
 @implementation KRNewsModel
+
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"imgextra" : [KRPicture class]};
+}
 
 //根据指定的请求地址获取新闻数据
 + (void)requestNewsModelArr:(NSString *)urlStr andCompletionBlock:(void(^)(NSArray *modelArr))completionBlock

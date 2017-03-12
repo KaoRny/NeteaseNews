@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A57821B1E7556D4004152DE /* KRPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A57821A1E7556D4004152DE /* KRPicture.m */; };
 		5A6D5F6D1E72DA50007E8239 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6D5F6C1E72DA50007E8239 /* main.m */; };
 		5A6D5F701E72DA50007E8239 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6D5F6F1E72DA50007E8239 /* AppDelegate.m */; };
 		5A6D5F761E72DA50007E8239 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A6D5F741E72DA50007E8239 /* Main.storyboard */; };
@@ -49,6 +50,8 @@
 /* Begin PBXFileReference section */
 		2A30DECAB8FFA3D2A813F058 /* Pods-NeteaseNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeteaseNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NeteaseNews/Pods-NeteaseNews.debug.xcconfig"; sourceTree = "<group>"; };
 		3D049DA1FB7078E4BC90A725 /* Pods-NeteaseNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeteaseNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-NeteaseNews/Pods-NeteaseNews.release.xcconfig"; sourceTree = "<group>"; };
+		5A5782191E7556D4004152DE /* KRPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRPicture.h; sourceTree = "<group>"; };
+		5A57821A1E7556D4004152DE /* KRPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRPicture.m; sourceTree = "<group>"; };
 		5A6D5F681E72DA50007E8239 /* NeteaseNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeteaseNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A6D5F6C1E72DA50007E8239 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5A6D5F6E1E72DA50007E8239 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 				5A6D5FAB1E72E6C2007E8239 /* KRChannelModel.m */,
 				5A936E021E73876000272044 /* KRNewsModel.h */,
 				5A936E031E73876000272044 /* KRNewsModel.m */,
+				5A5782191E7556D4004152DE /* KRPicture.h */,
+				5A57821A1E7556D4004152DE /* KRPicture.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -457,6 +462,7 @@
 				5A936E041E73876000272044 /* KRNewsModel.m in Sources */,
 				5A936DF81E72F71B00272044 /* KRChannelLable.m in Sources */,
 				5A936DFE1E72FF1800272044 /* KRNewsCollectionViewCell.m in Sources */,
+				5A57821B1E7556D4004152DE /* KRPicture.m in Sources */,
 				5A8AE4921E744BEE0093105C /* KRNewsTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,7 @@
 
 #import "KRNewsTableViewCell.h"
 #import <UIImageView+WebCache.h>
+#import "KRPicture.h"
 @interface KRNewsTableViewCell ()
 //新闻图片
 @property (weak, nonatomic) IBOutlet UIImageView *imgsrcImageView;
@@ -49,15 +50,22 @@
     //遍历多图数组
     for (int i = 0; i < self.iconImagesView.count; i++) {
         //获取对应的图片字典
-        NSDictionary *dic = newsModel.imgextra[i];
-        //通过key获取图片地址
-        NSString *imagePath = [dic objectForKey:@"imgsrc"];
+//        NSDictionary *dic = newsModel.imgextra[i];
+//        //通过key获取图片地址
+//        NSString *imagePath = [dic objectForKey:@"imgsrc"];
+        
+        //根据下标获取对应的模型
+        KRPicture *picture = newsModel.imgextra[i];
         //获取对应的imageview
         UIImageView *imageView = self.iconImagesView[i];
         //给imageView设置网络图片
-        [imageView sd_setImageWithURL:[NSURL URLWithString:imagePath] placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
+//        [imageView sd_setImageWithURL:[NSURL URLWithString:imagePath] placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
+         [imageView sd_setImageWithURL:[NSURL URLWithString:picture.imgsrc] placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
     }
+    
+    
 }
 
 
 @end
+
